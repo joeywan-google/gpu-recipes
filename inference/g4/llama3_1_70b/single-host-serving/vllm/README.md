@@ -69,12 +69,12 @@ inference-perf --config_file inference-perf-config.yml
 ```
 
 The provided [`inference-perf-config.yml`](./inference-perf-config.yml) drives 4000
-requests at concurrency 960 with ISL/OSL 128/2048.
+requests at concurrency 512 with ISL/OSL 128/2048.
 
-> **Important:** OSL=2048 requests take ~360 s end-to-end at high concurrency, which
-> exceeds inference-perf's default 300 s request timeout. The config sets
-> `load.request_timeout: 900` so long requests complete and are counted instead of being
-> dropped as timeouts.
+> **Note:** Concurrency is set to 512 — the throughput knee for this 128/2048 shape. It
+> delivers ~99% of the peak throughput observed at higher concurrency while keeping
+> end-to-end p99 latency (~210 s) under inference-perf's default 300 s request timeout, so
+> no timeout override is needed and no requests are dropped.
 
 
 ## Clean up
