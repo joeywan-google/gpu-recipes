@@ -136,6 +136,9 @@ model-server-agnostic benchmarking tool that reports standardized throughput and
 metrics. Install it and run against the server above:
 
 ```bash
+# The Ubuntu 24.04 VM image enforces PEP 668, so install into a virtualenv.
+python3 -m venv venv
+source venv/bin/activate
 pip install inference-perf
 inference-perf --config_file inference-perf-config.yml
 ```
@@ -152,5 +155,5 @@ to sweep other shapes or concurrency levels.
 This command deletes the GCE instance and all its disks.
 
 ```bash
-gcloud compute instances delete ${VM_NAME?} --zone=${ZONE?} --project=${PROJECT_ID} --quiet --delete-disks=all
+gcloud compute instances delete ${VM_NAME?} --zone=${ZONE?} --project=${PROJECT_ID?} --quiet --delete-disks=all
 ```

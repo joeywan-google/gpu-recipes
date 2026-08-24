@@ -64,6 +64,9 @@ model-server-agnostic benchmarking tool that reports standardized throughput and
 metrics.
 
 ```bash
+# The Ubuntu 24.04 VM image enforces PEP 668, so install into a virtualenv.
+python3 -m venv venv
+source venv/bin/activate
 pip install inference-perf
 inference-perf --config_file inference-perf-config.yml
 ```

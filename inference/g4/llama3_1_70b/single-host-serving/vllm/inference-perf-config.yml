@@ -14,7 +14,7 @@ api:
 server:
   type: vllm
   model_name: nvidia/Llama-3.1-70B-Instruct-FP8
-  base_url: http://0.0.0.0:8000
+  base_url: http://localhost:8000
   ignore_eos: true
 tokenizer:
   pretrained_model_name_or_path: nvidia/Llama-3.1-70B-Instruct-FP8
